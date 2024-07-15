@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        .header, .footer {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #007bff;
+        }
+        .footer {
+            font-size: 12px;
+            color: #666;
+        }
+        .total {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .total h2 {
+            margin: 0;
+            color: #007bff;
+        }
+        .baucher {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .baucher .item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <h1>Obras</h1>
+            <h6>Dirección: Duoc UC Puente Alto</h6>
+            <h6>Empresa: Alan vivido</h6>
+            
+        </div>
+       
+        
+        <div class="baucher">
+            {% for orden in ordenes %}
+            <div class="item">
+                <strong>Código de Producto:</strong> {{ orden.codigo_producto }}<br>
+                <strong>Nombre de Producto:</strong> {{ orden.nombre_producto }}<br>
+                <strong>Precio:</strong> ${{ orden.precio_producto }}<br>
+                <strong>Cantidad:</strong> {{ orden.cantidad }}<br>
+                <strong>Total:</strong> ${{ orden.total }}<br>
+                <strong>Usuario:</strong> {{ orden.fecha_compra }}<br>
+            </div>
+            
+            {% endfor %}    
+        </div>
+
+       
+        <div class="footer">
+            <p>Gracias por su compra</p>
+            <p>Para más información, visite nuestro sitio web o contáctenos.</p>
+        </div>
+    </div>
+</body>
+</html>

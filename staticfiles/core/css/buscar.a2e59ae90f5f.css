@@ -1,0 +1,10 @@
+.container-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el contenedor tenga al menos el alto de la ventana */
+}
+.row-center {
+    width: 100%; /* Ocupa todo el ancho del contenedor padre */
+}
+

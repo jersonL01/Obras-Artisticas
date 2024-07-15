@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container mt-3">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th>Usuario</th>
+                <th>Fecha</th>
+                
+                <th>
+                    <form action="{% url 'eliminar_historial' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary" onclick="return confirm('¿Estás seguro de que quieres eliminar tu historial?')">Eliminar Historial</button>
+                    </form>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in ordenes %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.nombre_producto }}</td>
+                <td>{{ item.precio_producto }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.total }}</td>
+                <td>{{ item.usuario_producto }}</td>
+                <td>{{ item.fecha_compra }}</td>
+                <td><a href="{% url 'generate_pdf' %}" class="btn btn-primary" target="_blank">DescargarPDF</a></td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

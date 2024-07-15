@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+    <div class="hero-wrap hero-bread" style="background-color: cadetblue;">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	
+            <h1 class="mb-0 bread">Collección de Obras</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section bg-light">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-8 col-lg-10 order-md-last">
+    				<div class="row">
+
+						{% for aux in listaProductos %}
+		    			<div class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
+		    				<div class="">
+								
+								<img class="img" src="{{ aux.imagen.url }}" alt="{{ aux.nombre }}"height="180" width="280">
+		    						
+		    					<div class="text py-3 px-3">
+									
+		    						<h3><a href="#">{{ aux.nombre }} </a></h3>
+		    						<div class="d-flex">
+		    							<div class="pricing">
+				    						<p class="price">$ {{ aux.precio }}</p>
+				    					</div>
+				    					<div class="rating">
+			    							<p class="text-right mx-5">
+			    								stock: {{ aux.stock }}
+			    							</p>
+			    						</div>
+			    					</div>
+
+		    					</div>
+		    				</div>
+		    			</div>
+						{% endfor %}
+		    			
+
+		    		</div>
+
+		    		
+		    	</div>
+
+		    	
+    		</div>
+    	</div>
+    </section>
+{% endblock %}

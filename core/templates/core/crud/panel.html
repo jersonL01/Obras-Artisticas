@@ -1,0 +1,64 @@
+{% extends 'core/base.html'%}
+{% load static %}
+
+{% block css %}
+
+<link href="{% static 'core/css/panel.css' %}" rel="stylesheet">
+{% endblock css %}
+{% block contenido %}
+<div class="wrapper">
+    <header>
+        <h2 class="text-light">{{ user.username }}</h2>
+    </header>
+    <aside>
+        <nav>
+            <ul>
+                <li><a href="{% url 'agregar' %}">Agregar</a></li>
+                <li><a href="{% url 'cuenta' %}">Mi cuenta</a></li>
+                <li><a href="{% url 'api_proyecto' %}">Api Productos</a></li>
+                <li><a href="{% url 'universo_api' %}">Api Externa</a></li>
+                <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="product">
+       <div class="container">
+        {% for aux in listaProductos %}
+        <div class="row">
+            <div class="col-2">
+                {% if aux.imagen %}
+					<img src="{{ aux.imagen.url }}" alt="" height="100">
+				{% else %}
+					<img src="{% static 'core/images/post-2.jpg' %}" alt="" height="200">
+				{% endif %}
+            </div>
+            <div class="col-2">
+                <h4 class="t1 text-light">{{ aux.nombre }}</h4>
+            </div>
+            <div class="col-2">
+                <h4 class="t1 text-light">{{ aux.precio }}</h4>
+            </div>
+            <div class="col-2">
+                <p class="t1 text-light"> Stock: {{ aux.stock }}</p>
+            </div>
+           
+            <div class="col-2">
+                <a href="{% url 'actualizar' aux.codigo_producto %}" class="btn btn-black  btn-block">Actualizar</a>
+            </div>
+            <div class="col-2">
+                <a onclick="eliminar({{ aux.codigo_producto }})" class="btn btn-black  btn-block">Eliminar</a>
+            </div>
+        </div>
+        {% endfor %}
+        
+		
+       </div>
+       
+        
+    </main>
+</div>
+{% endblock %}
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src=" {% static 'core/js/mensaje.js' %}"></script>
+{% endblock js %}

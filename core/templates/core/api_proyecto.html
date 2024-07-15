@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css %}
+
+<link href="{% static 'core/css/shopp.css' %}" rel="stylesheet">
+{% endblock css %}
+{% block contenido %}
+
+    <div class="hero-wrap hero-bread"  style="background-color: cadetblue;">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	
+            <h1 class="mb-0 bread">Api Poryecto</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-lg-10 order-md-last">
+					<div class="row">
+                        {% for aux in listaProductos %}
+						
+					<div class="col-12 col-md-4 col-lg-3 mb-5">
+						<a class="product-item" href="#">
+						
+							{% if aux.imagen %}
+								<img src="{{ aux.imagen }}" alt="" height="200" width="200">
+							{% else %}
+								<p>N hay imagen</p>
+							{% endif %}
+							<h3 class="text-center">{{ aux.nombre }}</h3>
+							<strong class="product-price">{{ usdt.dolar.valor }}</strong>
+							{%  if aux.stock > 1  %}
+							<p> Stock: {{ aux.stock }}</p>
+							{% else %}
+							<p> Stock: Agotado</p>
+							{%  endif  %}
+							
+						</a>
+					</div> 
+					
+					{% endfor %}
+					<!-- End Column 1 -->
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+{% endblock %}

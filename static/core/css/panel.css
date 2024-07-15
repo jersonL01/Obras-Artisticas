@@ -1,0 +1,84 @@
+
+.wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 250px 1fr;
+    grid-template-areas:
+        "header header"
+        "aside main";
+    height: 100vh;
+   
+}
+
+header {
+    grid-area: header;
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+aside {
+    grid-area: aside;
+    background: #444;
+    color: #fff;
+    padding: 20px;
+}
+
+aside nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+aside nav ul li {
+    margin: 15px 0;
+}
+
+aside nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    grid-area: main;
+    padding: 20px;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+main section {
+    display: none;
+}
+
+main section#dashboard {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.product{
+    background-color: teal;
+}
+.t1{
+    margin-top: 30px;
+}
+.btn{
+    margin-top: 20px;
+}
