@@ -131,7 +131,7 @@ DATABASES = {
         'HOST':'aws-0-sa-east-1.pooler.supabase.com',
         'PORT':'6543',
         'USER':'postgres.jqtodtprzzqjwpispbdv',
-        'PASSWORD':'PaltaconKK_033',
+        'PASSWORD':'', #AQUI VA LA CONTRASEÑA DE LA BASE DE DATOS
     }
 }
 # Password validation

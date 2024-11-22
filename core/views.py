@@ -60,7 +60,7 @@ def universo_api(request):
     return render(request, 'core/universo_api.html', data)
 
 
-
+@login_required
 def api_proyecto(request):
 
     #REALIZAMOS LA SOLICITUD AL API

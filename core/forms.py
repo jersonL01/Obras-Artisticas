@@ -15,7 +15,7 @@ class ProductoForm(ModelForm):
    
     class Meta:
         model = Producto
-        #fields = ['nombre', 'precio','stock', 'descripcion', 'tipo']
+       
         fields = '__all__'
 
 class RegistroUsuarioForm(UserCreationForm):
